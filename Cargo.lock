@@ -891,8 +891,7 @@ dependencies = [
 [[package]]
 name = "mac-notification-sys"
 version = "0.6.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ee70bb2bba058d58e252d2944582d634fc884fc9c489a966d428dedcf653e97"
+source = "git+https://github.com/h4llow3En/mac-notification-sys.git#7798ad033f3422b0fc9cdd25c17d3c400f4b7ef0"
 dependencies = [
  "cc",
  "objc2",

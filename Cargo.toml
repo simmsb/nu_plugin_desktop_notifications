@@ -19,3 +19,6 @@ name = "nu_plugin_desktop_notifications"
 readme = "README.md"
 repository = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
 version = "1.2.8"
+
+[patch.crates-io]
+mac-notification-sys = { git = "https://github.com/h4llow3En/mac-notification-sys.git" }
