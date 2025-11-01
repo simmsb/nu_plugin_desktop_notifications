@@ -98,6 +98,16 @@ impl SimplePluginCommand for NotifyCommand {
         }
         if let Some(app_name) = Self::load_string(call, "app-name") {
             notification.appname(&app_name);
+            let app_id = notify_rust::get_bundle_identifier_or_default(&app_name);
+            match notify_rust::set_application(&app_id) {
+                Ok(_) => {},
+                Err(err) => {
+                    if let Ok(true) = call.has_flag("crash-on-error") {
+                        return Err(LabeledError::new(err.to_string())
+                            .with_label("Notification Exception", call.head));
+                    }
+                }
+            }
         }
 
         if let Some(icon) = Self::load_string(call, "icon") {
